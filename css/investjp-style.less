@@ -1,4 +1,4 @@
-// compress: false, javascriptEnabled: true
+// compress: true, javascriptEnabled: true
 /* --------------------------------------------------------------
 /* MAIN LESS MIXINS AND FUNCTIONS - LESSHAT
 -------------------------------------------------------------- */
@@ -93,6 +93,7 @@ a {
 /* --------------------------------------------------------------
 1.- HEADER
 -------------------------------------------------------------- */
+
 /* TOP HEADER SETTINGS */
 .top-header {
     background: @sgray;
@@ -107,10 +108,6 @@ a {
 
     & .top-header-right {
         text-align: right;
-
-
-
-
 
         & .dropdown-lang {
             display: inline-block;
@@ -330,6 +327,7 @@ a {
     }
 }
 
+/* MENU MOBILE CONTAINER ON OPEN */
 .menu-mobile-open {
     z-index: 90;
     opacity: 1;
@@ -347,7 +345,6 @@ a {
                             .transition-delay((@value / 10s));
                         }
                     }
-
                 );
             }
         }
@@ -358,12 +355,6 @@ a {
         .transition(all .2s ease-in-out .6s);
     }
 }
-
-
-
-
-
-
 
 /* --------------------------------------------------------------
 2.- FOOTER

@@ -18,9 +18,9 @@
     <?php /* FAVICONS */ ?>
     <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/images/apple-touch-icon.png" />
     <?php /* THEME NAVBAR COLOR */ ?>
-    <meta name="msapplication-TileColor" content="#454545" />
+    <meta name="msapplication-TileColor" content="#97A29E" />
     <meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/images/win8-tile-icon.png" />
-    <meta name="theme-color" content="#454545" />
+    <meta name="theme-color" content="#97A29E" />
     <?php /* AUTHOR INFORMATION */ ?>
     <meta name="language" content="<?php echo get_bloginfo('language'); ?>" />
     <meta name="author" content="Invest JP Siglo XXI S.L." />
@@ -99,14 +99,13 @@
                                     Navbar
                                     <?php } ?>
                                 </a>
-                                <!-- Brand and toggle get grouped for better mobile display -->
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
                                 <?php
                                     wp_nav_menu( array(
                                         'theme_location'  => 'header_menu',
-                                        'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
+                                        'depth'           => 1,
                                         'container'       => 'div',
                                         'container_class' => 'collapse navbar-collapse',
                                         'container_id'    => 'bs-example-navbar-collapse-1',
