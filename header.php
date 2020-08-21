@@ -53,7 +53,7 @@
     <?php $header_options = get_option('ijp_header_settings'); ?>
     <header class="container-fluid p-0" role="banner" itemscope itemtype="http://schema.org/WPHeader">
         <div class="row no-gutters">
-            <div class="top-header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="top-header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 d-xl-block d-lg-block d-md-none d-sm-none d-none">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="top-header-left col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
@@ -88,13 +88,13 @@
             <div class="the-header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="container p-0">
                     <div class="row no-gutters">
-                        <div class="header-navbar col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="header-navbar col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 d-xl-block d-lg-block d-md-none d-sm-none d-none">
                             <nav class="navbar navbar-expand-md" role="navigation">
                                 <a class="navbar-brand" href="<?php echo home_url('/');?>" title="<?php echo get_bloginfo('name'); ?>">
                                     <?php $custom_logo_id = get_theme_mod( 'custom_logo' ); ?>
                                     <?php $image = wp_get_attachment_image_src( $custom_logo_id , 'logo' ); ?>
                                     <?php if (!empty($image)) { ?>
-                                    <img src="<?php echo $image[0];?>" alt="<?php echo get_bloginfo('name'); ?>" class="img-fluid img-logo" />
+                                    <img itemprop="logo" src="<?php echo $image[0];?>" alt="<?php echo get_bloginfo('name'); ?>" class="img-fluid img-logo" width="<?php echo $image[1];?>" height="<?php echo $image[2];?>" />
                                     <?php } else { ?>
                                     Navbar
                                     <?php } ?>
@@ -117,8 +117,58 @@
                                     ?>
                             </nav>
                         </div>
+                        <div class="header-navbar-mobile col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 d-xl-none d-lg-none d-md-block d-sm-block d-block">
+                            <div class="row align-items-center">
+                                <div class="header-mobile-logo col-8">
+                                    <a class="navbar-brand" href="<?php echo home_url('/');?>" title="<?php echo get_bloginfo('name'); ?>">
+                                        <?php $custom_logo_id = get_theme_mod( 'custom_logo' ); ?>
+                                        <?php $image = wp_get_attachment_image_src( $custom_logo_id , 'logo' ); ?>
+                                        <?php if (!empty($image)) { ?>
+                                        <img itemprop="logo" src="<?php echo $image[0];?>" alt="<?php echo get_bloginfo('name'); ?>" class="img-fluid img-logo" width="<?php echo $image[1];?>" height="<?php echo $image[2];?>" />
+                                        <?php } else { ?>
+                                        Navbar
+                                        <?php } ?>
+                                    </a>
+                                </div>
+                                <div class="header-mobile-button col-4">
+                                    <button id="menuBtn" class="btn-menu">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div id="menuCtn" class="menu-mobile-container">
+            <div id="menuContent" class="menu-mobile-content">
+                <?php
+                    wp_nav_menu( array(
+                        'theme_location'  => 'header_menu',
+                        'depth'           => 1,
+                        'container'       => 'div'
+                    ) );
+                    ?>
+            </div>
+            <div id="menuMobileExt" class="menu-mobile-extra">
+                <div class="menu-mobile-extra-data">
+                    <?php if ($header_options['email_address'] != '') { ?>
+                    <a href="mailto:<?php echo $header_options['email_address']; ?>" target="_blank" title="<?php _e('Déjanos un mensaje en nuestra bandeja de entrada', 'investjp'); ?>"><?php echo $header_options['email_address']; ?></a>
+                    <?php } ?>
+                    <?php if ($header_options['phone_number'] != '') { ?>
+                    <a href="tel:<?php echo $header_options['formatted_phone_number']; ?>" target="_blank" title="<?php _e('Llámanos a nuestro Master', 'investjp'); ?>"><?php echo $header_options['phone_number']; ?></a>
+                    <?php } ?>
+                    <a href="#" title="<?php _e('Haga click aquí para ir a mi cuenta', 'investjp'); ?>"><?php _e('Mi Cuenta', 'investjp'); ?></a>
+                </div>
+                <div class="menu-mobile-extra-lang">
+                    <a title="<?php _e('Ver el sitio en Español', 'investjp'); ?>" href="<?php echo network_home_url('/'); ?>"><?php _e('Español', 'investjp'); ?></a>
+                    <a title="<?php _e('Ver el sitio en Ingles', 'investjp'); ?>" href="<?php echo network_home_url('/eng'); ?>"><?php _e('Ingles', 'investjp'); ?></a>
+                </div>
+
             </div>
         </div>
     </header>

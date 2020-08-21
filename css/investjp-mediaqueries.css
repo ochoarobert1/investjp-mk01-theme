@@ -2,9 +2,69 @@
 /* --------------------------------------------------------------
 MEDIAQUERIES LG/MD - LAYOUTS BIGGER THAN 992px
 -------------------------------------------------------------- */
+@media (max-width: 1366px) {
+  .the-header .navbar-nav li.nav-item a.nav-link {
+    font-size: 1rem;
+    padding: 0 2.5rem;
+  }
+  .img-logo {
+    max-width: 240px;
+  }
+}
+@media (max-width: 1280px) {
+  .the-header .navbar-nav li.nav-item a.nav-link {
+    padding: 0 1rem;
+  }
+}
 /* --------------------------------------------------------------
 MEDIAQUERIES SM - LAYOUTS BIGGER THAN 768px
 -------------------------------------------------------------- */
+@media (max-width: 991px) {
+  .the-header {
+    box-shadow: 0 0 16px #efefef;
+  }
+}
+@media (max-width: 768px) {
+  .header-navbar-mobile .header-mobile-button .btn-menu-open {
+    top: 6.9vh;
+    right: 1.9vw;
+  }
+}
 /* --------------------------------------------------------------
 MEDIAQUERIES XS - LAYOUTS LESS THAN 600px
 -------------------------------------------------------------- */
+@media (max-width: 600px) {
+  .header-navbar-mobile .header-mobile-button .btn-menu-open {
+    top: 7.4vh;
+    right: 3.5vw;
+  }
+  .header-navbar-mobile {
+    padding: 0 1rem !important;
+  }
+}
+@media (max-width: 533px) {
+  .menu-mobile-container .menu-mobile-extra .menu-mobile-extra-data:before {
+    top: 13%;
+    left: 39.5%;
+  }
+  .header-navbar-mobile .header-mobile-button .btn-menu-open {
+    top: 8.1vh;
+    right: 3vw;
+  }
+  .menu-mobile-extra-data a {
+    display: block;
+    margin-bottom: 1rem !important;
+  }
+}
+@media (max-width: 424px) {
+  .header-navbar-mobile .header-mobile-button .btn-menu-open {
+    top: 9.9vh;
+    right: 4vw;
+  }
+}
+@media (max-width: 414px) {
+  .header-navbar-mobile .header-mobile-button .btn-menu-open {
+    top: 8vh;
+    right: 3.8vw;
+  }
+}
