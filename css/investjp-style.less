@@ -7,10 +7,13 @@
 VARIABLES
 -------------------------------------------------------------- */
 
-@mainfont: 'Open Sans', sans-serif;
-@secondfont: 'Open Sans', sans-serif;
+@mainfont: 'Montserrat', sans-serif;
 @black: #000000;
 @white: #ffffff;
+@sgray: #E7EDED;
+@hgray: #97A29E;
+@hblue: #010717;
+
 
 /* --------------------------------------------------------------
 BODY DEFAULTS
@@ -34,9 +37,11 @@ body {
 }
 
 a {
+    color: @black;
     .transition(all .2s ease-in-out);
 
     &:hover {
+        color: @hgray;
         text-decoration: none;
     }
 }
@@ -74,10 +79,116 @@ a {
     }
 }
 
+@media (min-width: 1350px) {
+
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+        max-width: 1350px;
+    }
+}
 
 /* --------------------------------------------------------------
 1.- HEADER
 -------------------------------------------------------------- */
+/* TOP HEADER SETTINGS */
+.top-header {
+    background: @sgray;
+    padding: .5rem 1rem;
+    font-size: .9rem;
+
+    & .top-header-left {
+        & a {
+            margin-right: 10px;
+        }
+    }
+
+    & .top-header-right {
+        text-align: right;
+
+
+
+
+
+        & .dropdown-lang {
+            display: inline-block;
+            margin-right: 10px;
+
+            & .dropdown-menu {
+                .transform(translate3d(-10px, 35px, 0)) !important;
+            }
+
+            & button {
+                color: @black;
+                background: none transparent;
+                border: 0;
+                position: relative;
+
+                &:active {
+                    background: none transparent !important;
+                }
+
+                &:focus {
+                    background: none transparent !important;
+                    outline: 0;
+                    box-shadow: none !important;
+                }
+
+                &::after {
+                    display: none;
+                }
+
+                & .menu-bars {
+                    display: inline-block;
+                    width: 25px;
+
+                    & span {
+                        position: absolute;
+                        right: 5px;
+                        background: @black;
+                        height: .5px;
+                        width: 25px;
+
+                        &:nth-child(1) {
+                            top: 12px;
+                        }
+
+                        &:nth-child(2) {
+                            top: 17px;
+                        }
+
+                        &:nth-child(3) {
+                            top: 22px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.the-header {
+    background: @white;
+    padding: 1rem 0;
+
+    & .navbar-nav {
+        & li.nav-item {
+            & a.nav-link {
+                font-weight: 600;
+                font-size: 1.2rem;
+                padding: 0 2.5rem;
+            }
+
+            &:last-child {
+                & a.nav-link {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+}
 
 /* --------------------------------------------------------------
 2.- FOOTER

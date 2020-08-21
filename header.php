@@ -55,8 +55,8 @@
         <div class="row no-gutters">
             <div class="top-header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="container">
-                    <div class="row">
-                        <div class="top-header left col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                    <div class="row align-items-center">
+                        <div class="top-header-left col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                             <?php if ($header_options['email_address'] != '') { ?>
                             <a href="mailto:<?php echo $header_options['email_address']; ?>" target="_blank" title="<?php _e('Déjanos un mensaje en nuestra bandeja de entrada', 'investjp'); ?>"><?php echo $header_options['email_address']; ?></a>
                             <?php } ?>
@@ -64,10 +64,15 @@
                             <a href="tel:<?php echo $header_options['formatted_phone_number']; ?>" target="_blank" title="<?php _e('Llámanos a nuestro Master', 'investjp'); ?>"><?php echo $header_options['phone_number']; ?></a>
                             <?php } ?>
                         </div>
-                        <div class="top-header right col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                        <div class="top-header-right col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                             <div class="dropdown dropdown-lang">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <?php _e('Idioma', 'investjp'); ?> <i class="fa fa-bars"></i>
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="<?php _e('Seleccione el idioma de visualización de la página', 'investjp'); ?>">
+                                    <?php _e('Idioma', 'investjp'); ?>
+                                    <div class="menu-bars">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a title="<?php _e('Ver el sitio en Español', 'investjp'); ?>" class="dropdown-item" href="<?php echo network_home_url('/'); ?>"><?php _e('Español', 'investjp'); ?></a>
@@ -81,34 +86,39 @@
                 </div>
             </div>
             <div class="the-header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                <nav class="navbar navbar-expand-md" role="navigation">
-                    <a class="navbar-brand" href="<?php echo home_url('/');?>" title="<?php echo get_bloginfo('name'); ?>">
-                        <?php $custom_logo_id = get_theme_mod( 'custom_logo' ); ?>
-                        <?php $image = wp_get_attachment_image_src( $custom_logo_id , 'logo' ); ?>
-                        <?php if (!empty($image)) { ?>
-                        <img src="<?php echo $image[0];?>" alt="<?php echo get_bloginfo('name'); ?>" class="img-fluid img-logo" />
-                        <?php } else { ?>
-                        Navbar
-                        <?php } ?>
-                    </a>
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <?php
-                        wp_nav_menu( array(
-                            'theme_location'  => 'header_menu',
-                            'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
-                            'container'       => 'div',
-                            'container_class' => 'collapse navbar-collapse',
-                            'container_id'    => 'bs-example-navbar-collapse-1',
-                            'menu_class'      => 'navbar-nav ml-auto',
-                            'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-                            'walker'          => new WP_Bootstrap_Navwalker(),
-                        ) );
-                        ?>
-
-                </nav>
+                <div class="container p-0">
+                    <div class="row no-gutters">
+                        <div class="header-navbar col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <nav class="navbar navbar-expand-md" role="navigation">
+                                <a class="navbar-brand" href="<?php echo home_url('/');?>" title="<?php echo get_bloginfo('name'); ?>">
+                                    <?php $custom_logo_id = get_theme_mod( 'custom_logo' ); ?>
+                                    <?php $image = wp_get_attachment_image_src( $custom_logo_id , 'logo' ); ?>
+                                    <?php if (!empty($image)) { ?>
+                                    <img src="<?php echo $image[0];?>" alt="<?php echo get_bloginfo('name'); ?>" class="img-fluid img-logo" />
+                                    <?php } else { ?>
+                                    Navbar
+                                    <?php } ?>
+                                </a>
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <?php
+                                    wp_nav_menu( array(
+                                        'theme_location'  => 'header_menu',
+                                        'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
+                                        'container'       => 'div',
+                                        'container_class' => 'collapse navbar-collapse',
+                                        'container_id'    => 'bs-example-navbar-collapse-1',
+                                        'menu_class'      => 'navbar-nav ml-auto',
+                                        'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+                                        'walker'          => new WP_Bootstrap_Navwalker(),
+                                    ) );
+                                    ?>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
