@@ -37,8 +37,8 @@ function investjp_load_js() {
             //wp_enqueue_script('owl-js');
 
             /*- AOS ON LOCAL -*/
-            //wp_register_script('aos-js', get_template_directory_uri() . '/js/aos.js', array('jquery'), '3.0.0', true);
-            //wp_enqueue_script('aos-js');
+            wp_register_script('aos-js', get_template_directory_uri() . '/js/aos.js', array('jquery'), '3.0.0', true);
+            wp_enqueue_script('aos-js');
 
         } else {
 
@@ -79,8 +79,8 @@ function investjp_load_js() {
             //wp_enqueue_script('owl-js');
 
             /*- AOS -*/
-            //wp_register_script('aos-js', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js', array('jquery'), '2.3.4', true);
-            //wp_enqueue_script('aos-js');
+            wp_register_script('aos-js', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js', array('jquery'), '2.3.4', true);
+            wp_enqueue_script('aos-js');
 
         }
 
