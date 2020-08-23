@@ -64,4 +64,7 @@ function investjp_register_custom_metabox() {
 
     /* HOME */
     require_once('custom-metabox-home.php');
+
+    /* ABOUT */
+    require_once('custom-metabox-about.php');
 }

@@ -196,6 +196,23 @@ a {
     animation-iteration-count: 1;
 }
 
+.main-banner-container {
+    position: relative;
+
+    & .main-banner-wrapper {
+        background: rgba(0, 0, 0, 0.3);
+        color: @white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        .display(flex);
+        .align-items(center);
+        .justify-content(center);
+    }
+}
+
 /* --------------------------------------------------------------
 0.- CONTACT FORM
 -------------------------------------------------------------- */
@@ -658,5 +675,115 @@ a {
             margin-top: 5rem;
             display: block;
         }
+    }
+}
+
+/* --------------------------------------------------------------
+4.- ABOUT
+-------------------------------------------------------------- */
+/* ABOUT MAIN CONTAINER */
+.about-main-container {
+    padding: 4rem 1rem;
+    padding-bottom: 2rem;
+}
+
+.about-second-container {
+    padding: 4rem 1rem;
+    padding-top: 2rem;
+
+    & .about-main-group-wrapper {
+        .display(flex);
+        .align-items(center);
+        .justify-content(center);
+        flex-flow: column;
+
+        & img {
+            margin: 2rem 0;
+        }
+    }
+}
+
+.about-main-content {
+    font-size: 1.1rem;
+    line-height: 2rem;
+}
+
+/* TITLE CONTAINER */
+.about-title-separator {
+    color: @white;
+    text-align: center;
+    padding: 4rem 1rem;
+    background-size: 50% !important;
+    background-repeat: no-repeat !important;
+    background-position: left center !important;
+}
+
+
+/* VALUES SECTION */
+.about-values-container {
+    padding: 3rem 1rem;
+
+    & .about-values-item {
+        padding: 1.5rem 1rem;
+
+
+        & .about-values-title {
+            margin-bottom: 1rem;
+
+            & img {
+                max-width: 65px;
+                margin-right: 5px;
+            }
+
+            & h2 {
+                margin: 0;
+            }
+        }
+
+        & .about-values-item-content {
+            font-size: 1.1rem;
+            line-height: 1.8rem;
+        }
+    }
+
+    & .odd {
+        text-align: left;
+
+        & .about-values-item-image {
+            padding-left: 35px;
+        }
+
+        & .about-values-item-content {
+            padding-right: 35px;
+        }
+    }
+
+    & .even {
+        text-align: right;
+
+        & .about-values-item-image {
+            padding-right: 35px;
+        }
+
+        & .about-values-item-content {
+            padding-left: 35px;
+        }
+    }
+}
+
+/* DESCANSO SECTION */
+.about-descanso-separator {
+    padding: 10rem 1rem;
+    background-size: 40% !important;
+    background-repeat: no-repeat !important;
+    background-position: left -60px !important;
+
+    & .about-descanso-content {
+        font-size: 1.7rem;
+        font-style: italic;
+        line-height: 2.4rem;
+        text-align: center;
+        font-weight: 600;
+        padding: 0rem 4rem;
     }
 }
