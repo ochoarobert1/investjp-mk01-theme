@@ -10,10 +10,71 @@ MEDIAQUERIES LG/MD - LAYOUTS BIGGER THAN 992px
   .img-logo {
     max-width: 240px;
   }
+  .home-hero-container {
+    background-size: contain;
+  }
+  .home-contact-container {
+    background-size: 21%;
+  }
 }
 @media (max-width: 1280px) {
   .the-header .navbar-nav li.nav-item a.nav-link {
     padding: 0 1rem;
+  }
+  .home-servicios-container .media-body {
+    padding-right: 1rem;
+  }
+  .home-contact-container {
+    background-size: 20%;
+  }
+}
+@media (max-width: 1170px) {
+  .home-hero-container .row-hero .home-hero-content h1 {
+    margin-top: 1.5rem;
+    font-size: 1.35rem;
+    line-height: 2rem;
+  }
+  .home-hero-logo img {
+    width: 170px;
+  }
+  .home-hero-container .row-hero .hero-view-more h4 {
+    font-size: 1rem;
+  }
+  .home-hero-container .row-hero .hero-view-more {
+    bottom: 10px;
+  }
+  .home-servicios-container .media-body {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+  }
+  .home-benefits-container .home-benefits-content {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+  }
+  .home-benefits-container .home-benefits-content h2 {
+    font-size: 1.7rem;
+  }
+  .home-benefits-container .home-benefits-icon img {
+    width: 80%;
+  }
+  .home-descanso-container {
+    font-size: 1.35rem;
+  }
+  .home-contact-container .home-contact-item-title {
+    padding-bottom: 3rem;
+  }
+  .home-contact-container .home-contact-item-title h2 {
+    font-size: 1.35rem;
+  }
+  .home-contact-container {
+    background-position: -240px center !important;
+    background-size: 40%;
+  }
+}
+@media (max-width: 1024px) {
+  .home-contact-container {
+    background-position: -260px center !important;
+    background-size: 40%;
   }
 }
 /* --------------------------------------------------------------
@@ -26,6 +87,53 @@ MEDIAQUERIES SM - LAYOUTS BIGGER THAN 768px
   .header-navbar-mobile .header-mobile-button .btn-menu-open {
     top: 2.3%;
     right: 6%;
+  }
+  .home-hero-container .row-hero {
+    min-height: 50vh;
+    padding-top: 5rem;
+  }
+  .home-hero-container {
+    background-position: left center !important;
+    background-repeat: no-repeat !important;
+    background-size: 80% !important;
+  }
+  .home-hero-container .row-hero .home-hero-content h1 {
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+  }
+  .home-hero-container .row-hero .hero-view-more {
+    bottom: 20px;
+    left: 45%;
+  }
+  .home-descanso-container {
+    font-size: 1.1rem;
+  }
+  .btn-main-button {
+    padding: 0.4rem 5rem;
+    font-size: 1rem;
+  }
+  .home-servicios-container {
+    padding: 3rem;
+    background-position: 550px center !important;
+    background-size: 40%;
+  }
+  .home-servicios-content {
+    padding-bottom: 1rem;
+  }
+  .home-servicios-content img {
+    width: 15%;
+  }
+  .home-servicios-container .media-body {
+    font-size: 1.1rem;
+    line-height: 2rem;
+    padding-top: 1rem;
+  }
+  .home-benefits-container .home-benefits-content h2 {
+    font-size: 1.5rem;
+  }
+  .home-contact-container {
+    background-position: -240px center !important;
+    background-size: 40%;
   }
 }
 @media (max-width: 768px) {
@@ -44,6 +152,39 @@ MEDIAQUERIES XS - LAYOUTS LESS THAN 600px
   }
   .header-navbar-mobile {
     padding: 0 1rem !important;
+  }
+  .home-benefits-container .home-benefits-icon img {
+    width: 120px;
+    margin: 0 auto;
+    display: block;
+  }
+  .home-benefits-container {
+    padding: 1.5rem 1rem;
+  }
+  .home-benefits-container .home-benefits-content {
+    font-size: 1rem;
+    line-height: 1.8rem;
+    padding: 0.5rem;
+  }
+  .home-contact-container .home-contact-item-content {
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.8rem;
+    padding-top: 2rem;
+  }
+  .home-contact-container .home-contact-item-title {
+    padding-bottom: 1rem;
+    text-align: center;
+  }
+  .contact-form-control {
+    padding: 0.3rem 0;
+  }
+  .contact-form-submit {
+    padding: 0.3rem 0;
+  }
+  .home-contact-container {
+    padding: 1rem;
+    padding-bottom: 3rem;
   }
 }
 @media (max-width: 533px) {
@@ -64,6 +205,9 @@ MEDIAQUERIES XS - LAYOUTS LESS THAN 600px
   .header-navbar-mobile .header-mobile-button .btn-menu-open {
     top: 3.5%;
     right: 3.8%;
+  }
+  .home-servicios-content img {
+    width: 35%;
   }
 }
 @media (max-width: 414px) {

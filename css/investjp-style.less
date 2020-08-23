@@ -95,12 +95,145 @@ a {
 }
 
 @media (min-width: 1200px) {
+
     .container,
     .container-lg,
     .container-md,
     .container-sm,
     .container-xl {
         max-width: 1200px;
+    }
+}
+
+.alignleft {
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 0;
+}
+
+@-webkit-keyframes hvr-wobble-vertical {
+    16.65% {
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px);
+    }
+
+    33.3% {
+        -webkit-transform: translateY(-6px);
+        transform: translateY(-6px);
+    }
+
+    49.95% {
+        -webkit-transform: translateY(4px);
+        transform: translateY(4px);
+    }
+
+    66.6% {
+        -webkit-transform: translateY(-2px);
+        transform: translateY(-2px);
+    }
+
+    83.25% {
+        -webkit-transform: translateY(1px);
+        transform: translateY(1px);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes hvr-wobble-vertical {
+    16.65% {
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px);
+    }
+
+    33.3% {
+        -webkit-transform: translateY(-6px);
+        transform: translateY(-6px);
+    }
+
+    49.95% {
+        -webkit-transform: translateY(4px);
+        transform: translateY(4px);
+    }
+
+    66.6% {
+        -webkit-transform: translateY(-2px);
+        transform: translateY(-2px);
+    }
+
+    83.25% {
+        -webkit-transform: translateY(1px);
+        transform: translateY(1px);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+.hvr-wobble-vertical {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.hvr-wobble-vertical:hover,
+.hvr-wobble-vertical:focus,
+.hvr-wobble-vertical:active {
+    -webkit-animation-name: hvr-wobble-vertical;
+    animation-name: hvr-wobble-vertical;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
+/* --------------------------------------------------------------
+0.- CONTACT FORM
+-------------------------------------------------------------- */
+.contact-form-control {
+    padding: 0.3rem 0.5rem;
+
+    & .form-control {
+        background: @sgray;
+        border: 0;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    & label {
+        display: inline-block;
+        margin-bottom: 0.1rem;
+        margin-top: .5rem;
+        font-size: 1rem;
+    }
+}
+
+.contact-form-submit {
+    padding: 0.3rem 0.5rem;
+    margin-top: 1.5rem;
+
+    & .btn-contact {
+        background: @sgray;
+        color: @hblue;
+        border-radius: 0;
+        padding: 0.6rem 1rem;
+        font-size: 1.1rem;
+        font-weight: 900;
+        width: 100%;
+
+        &:hover {
+            background: @hblue;
+            color: @white;
+        }
     }
 }
 
@@ -375,6 +508,16 @@ a {
 /* --------------------------------------------------------------
 2.- FOOTER
 -------------------------------------------------------------- */
+.the-footer {
+    background: @sgray;
+    color: @hblue;
+
+    & .footer-sidebar {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+}
 
 /* --------------------------------------------------------------
 3.- HOME
@@ -405,6 +548,7 @@ a {
             position: absolute;
             bottom: -20px;
             left: 47%;
+            cursor: pointer;
 
             & div {
                 background: @black;
@@ -496,20 +640,22 @@ a {
 /* MAIN CONTACT CONTAINER */
 .home-contact-container {
     padding: 3rem;
+    padding-bottom: 5rem;
     background-position: left center !important;
     background-repeat: no-repeat !important;
-    background-size: contain;
+    background-size: 25%;
 
     & .home-contact-item-title {
         padding-bottom: 5rem;
     }
 
     & .home-contact-item-content {
-        font-size: 1.1rem;
-        line-height: 2rem;
+        font-size: 1rem;
+        line-height: 1.8rem;
 
         & .aligncenter {
             margin: 1rem auto;
+            margin-top: 5rem;
             display: block;
         }
     }

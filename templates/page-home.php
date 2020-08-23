@@ -25,7 +25,7 @@
                         <?php $bg_banner = wp_get_attachment_image_src($bg_banner_id, 'large', false); ?>
                         <img itemprop="logo" content="<?php echo $bg_banner[0];?>" src="<?php echo $bg_banner[0];?>" title="<?php echo get_post_meta( $bg_banner_id, '_wp_attachment_image_alt', true ); ?>" alt="<?php echo get_post_meta($bg_banner_id, '_wp_attachment_image_alt', true ); ?>" class="img-fluid" width="<?php echo $bg_banner[1]; ?>" height="<?php echo $bg_banner[2]; ?>" />
                     </div>
-                    <div class="hero-view-more" data-aos="fade" data-aos-delay="300">
+                    <div class="hero-view-more hvr-wobble-vertical" data-aos="fade" data-aos-delay="300" >
                         <h4><?php _e('Explorar', 'investjp'); ?></h4>
                         <div></div>
                     </div>
@@ -71,7 +71,7 @@
         <section class="home-benefits-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" data-aos="fade" data-aos-delay="300">
             <div class="container">
                 <div class="row no-gutters align-items-center">
-                    <div class="home-benefits-icon col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+                    <div class="home-benefits-icon col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
                         <?php $bg_banner_id = get_post_meta(get_the_ID(), 'ijp_home_benefits_icon_id', true); ?>
                         <?php $bg_banner = wp_get_attachment_image_src($bg_banner_id, 'thumbnail', false); ?>
                         <img itemprop="image" content="<?php echo $bg_banner[0];?>" src="<?php echo $bg_banner[0];?>" title="<?php echo get_post_meta( $bg_banner_id, '_wp_attachment_image_alt', true ); ?>" alt="<?php echo get_post_meta($bg_banner_id, '_wp_attachment_image_alt', true ); ?>" class="img-fluid" width="<?php echo $bg_banner[1]; ?>" height="<?php echo $bg_banner[2]; ?>" />
@@ -115,15 +115,15 @@
         <section class="home-contact-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" data-aos="fade" data-aos-delay="300" style="background-image: url(<?php echo $bg_banner[0]; ?>);">
             <div class="container">
                 <div class="row no-gutters align-items-center">
-                    <div class="home-contact-content col-xl-10 offset-xl-2 col-lg-10 offset-lg-2 col-md-12 col-sm-12 col-12">
+                    <div class="home-contact-content col-xl-10 offset-xl-2 col-lg-11 offset-lg-1 col-md-12 col-sm-12 col-12">
                         <div class="row">
-                            <div class="home-contact-item-title col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="home-contact-item-title order-1 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <?php echo apply_filters('the_content', get_post_meta(get_the_ID(), 'ijp_home_contact_title', true)); ?>
                             </div>
-                            <div class="home-contact-item-content col-xl-5 col-lg-5 col-md-6 col-sm-12 col-12">
+                            <div class="home-contact-item-content order-xl-3 order-lg-3 order-md-3 order-sm-12 order-12 col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                                 <?php echo apply_filters('the_content', get_post_meta(get_the_ID(), 'ijp_home_contact_desc', true)); ?>
                             </div>
-                            <div class="home-contact-item-content col-xl-7 col-lg-7 col-md-6 col-sm-12 col-12">
+                            <div class="home-contact-item-content order-xl-12 order-lg-12 order-md-12 order-sm-3 order-3 col-xl-8 col-lg-8 col-md-6 col-sm-12 col-12">
                                 <?php echo get_template_part('templates/template-contact-form'); ?>
                             </div>
                         </div>
