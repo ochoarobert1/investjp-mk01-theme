@@ -250,7 +250,7 @@ $cmb_service_items->add_group_field( $group_field_id, array(
             'image/png'
         )
     ),
-    'preview_size' => 'medium'
+    'preview_size' => 'avatar'
 ) );
 
 $cmb_service_items->add_group_field( $group_field_id, array(

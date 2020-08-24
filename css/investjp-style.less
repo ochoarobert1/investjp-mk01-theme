@@ -211,6 +211,10 @@ a {
         .align-items(center);
         .justify-content(center);
     }
+
+    & img {
+        width: 100%;
+    }
 }
 
 /* --------------------------------------------------------------
@@ -785,5 +789,112 @@ a {
         text-align: center;
         font-weight: 600;
         padding: 0rem 4rem;
+    }
+}
+
+/* --------------------------------------------------------------
+5.- SERVICES
+-------------------------------------------------------------- */
+/* MAIN CONTENT */
+.main-services-container {
+    padding: 3rem 1rem;
+}
+
+.main-services-content {
+    line-height: 1.8rem;
+    font-size: 1.1rem;
+
+    & h2 {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+        line-height: 2.8rem;
+    }
+}
+
+/* HERO */
+.services-hero-container {
+    color: @white;
+    padding: 3rem 1rem;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+
+    & .services-hero-title {
+        padding-bottom: 3rem;
+    }
+
+    & .service-hero-item {
+        margin-bottom: 2rem;
+
+        .service-hero-item-wrapper {
+            background: @sgray;
+            color: @hblue;
+            padding: 3rem 3rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            & img {
+                margin-right: 20px;
+                width: 70px;
+                height: auto;
+            }
+
+            & p {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+/* ITEMS */
+.row-service-items {
+    padding: 5rem 1rem;
+    padding-bottom: 2rem;
+}
+
+.services-description-container {
+    padding: 6rem 1rem;
+    background-position: left top !important;
+    background-repeat: no-repeat !important;
+    background-size: 40% !important;
+
+    & .services-description-title {
+        text-align: center;
+        padding-bottom: 6rem;
+    }
+
+    & .services-description-content {
+        font-size: 1.8rem;
+        font-weight: 600;
+        font-style: italic;
+        line-height: 2.2rem;
+    }
+
+    & .services-group-item {
+        margin-bottom: 1.5rem;
+
+        & .services-group-image {
+            background: #3B515E;
+            text-align: center;
+            padding: 3rem;
+            border-radius: 50px;
+            width: 195px;
+            height: 195px;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 1rem;
+        }
+
+        & h3 {
+            font-size: 0.7rem;
+            text-align: center;
+            padding: 0 2rem;
+            line-height: 1.3rem;
+            font-weight: 600;
+        }
     }
 }
