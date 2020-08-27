@@ -92,10 +92,35 @@ function investjp_load_js() {
         wp_register_script('main-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), $version_remove, true);
         wp_enqueue_script('main-functions');
 
-        /* LOCALIZE MAIN SHORTCODE SCRIPT */
-        wp_localize_script( 'main-functions', 'custom_admin_url', array(
-            'ajax_url' => admin_url('admin-ajax.php')
-        ));
+        if ( is_page( array( 'home', 'inicio', 'contact', 'contacto' ) ) ) {
+            /*- SWEETALERT -*/
+            wp_register_script( 'sweetalert-js', 'https://cdn.jsdelivr.net/npm/sweetalert@2.1.2/dist/sweetalert.min.js', [], '2.1.2', true );
+            wp_enqueue_script('sweetalert-js');
+
+            /*- GOOGLE RECAPTCHA -*/
+            wp_register_script('recaptcha-js', 'https://www.google.com/recaptcha/api.js', array('jquery'), '3.0.0', true);
+            wp_enqueue_script('recaptcha-js');
+
+            /*- FORM FUNCTIONS -*/
+            wp_register_script('form-functions', get_template_directory_uri() . '/js/form-functions.js', array('jquery', 'recaptcha-js'), $version_remove, true);
+            wp_enqueue_script('form-functions');
+
+            /* LOCALIZE MAIN SHORTCODE SCRIPT */
+            wp_localize_script( 'main-functions', 'custom_admin_url', array(
+                'ajax_url' => admin_url('admin-ajax.php'),
+                'error_nombre' => __('Error: El nombre no puede estar vacio', 'investjp'),
+                'invalid_nombre' => __('Error: El nombre debe ser válido', 'investjp'),
+                'error_email' => __('Error: El correo no puede estar vacio', 'investjp'),
+                'invalid_email' => __('Error: El correo tiene un formato inválido', 'investjp'),
+                'error_phone' => __('Error: El Teléfono no puede estar vacio', 'investjp'),
+                'invalid_phone' => __('Error: El Teléfono tiene un formato inválido', 'investjp'),
+                'error_message' => __('Error: El Mensaje no puede estar vacio', 'investjp'),
+                'success_form' => __("Gracias por su mensaje, en breve serás contactado", 'investjp'),
+                'error_form' => __("Error: Hubo un problema inesperado, por favor, intentalo de nuevo", 'investjp'),
+                'success_title' => __("Envío exitoso", 'investjp'),
+                'error_title' => __("Error en Envío", 'investjp')
+            ));
+        }
 
         if ( is_single('post') && comments_open() && get_option( 'thread_comments' ) ) {
             wp_enqueue_script( 'comment-reply' );

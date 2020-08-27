@@ -3,12 +3,8 @@
 MEDIAQUERIES LG/MD - LAYOUTS BIGGER THAN 992px
 -------------------------------------------------------------- */
 @media (max-width: 1366px) {
-  .the-header .navbar-nav li.nav-item a.nav-link {
-    font-size: 1rem;
-    padding: 0 2.5rem;
-  }
-  .img-logo {
-    max-width: 240px;
+  .home-hero-logo img {
+    max-width: 230px;
   }
   .home-hero-container {
     background-size: contain;
@@ -16,19 +12,24 @@ MEDIAQUERIES LG/MD - LAYOUTS BIGGER THAN 992px
   .home-contact-container {
     background-size: 21%;
   }
+  .home-servicios-container {
+    background-size: 27%;
+  }
   .about-descanso-separator {
     padding: 5rem 1rem;
   }
 }
 @media (max-width: 1280px) {
-  .the-header .navbar-nav li.nav-item a.nav-link {
-    padding: 0 1rem;
+  .home-servicios-container {
+    background-size: 29%;
+    background-position: 73vw center !important;
   }
   .home-servicios-container .media-body {
     padding-right: 1rem;
   }
   .home-contact-container {
-    background-size: 20%;
+    background-size: 35%;
+    background-position: -15vw center !important;
   }
   .services-hero-container .service-hero-item .service-hero-item-wrapper {
     padding: 3rem 3rem;
@@ -38,6 +39,11 @@ MEDIAQUERIES LG/MD - LAYOUTS BIGGER THAN 992px
   .services-description-container .services-description-content {
     font-size: 1.7rem;
     line-height: 2.4rem;
+  }
+  .contact-items-container {
+    padding: 5rem 1rem;
+    font-size: 1rem;
+    line-height: 1rem;
   }
 }
 @media (max-width: 1170px) {
@@ -56,8 +62,8 @@ MEDIAQUERIES LG/MD - LAYOUTS BIGGER THAN 992px
     bottom: 10px;
   }
   .home-servicios-container .media-body {
-    font-size: 1.4rem;
-    line-height: 2.2rem;
+    font-size: 1.2rem;
+    line-height: 2rem;
   }
   .home-benefits-container .home-benefits-content {
     font-size: 0.9rem;
@@ -141,6 +147,11 @@ MEDIAQUERIES LG/MD - LAYOUTS BIGGER THAN 992px
     padding: 0 0.5rem;
     line-height: 1.3rem;
   }
+  .contact-items-container {
+    padding: 4rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
 @media (max-width: 1024px) {
   .home-contact-container {
@@ -178,6 +189,8 @@ MEDIAQUERIES SM - LAYOUTS BIGGER THAN 768px
   }
   .home-descanso-container {
     font-size: 1.1rem;
+    padding-top: 0;
+    margin-top: 0;
   }
   .btn-main-button {
     padding: 0.4rem 5rem;
@@ -189,7 +202,8 @@ MEDIAQUERIES SM - LAYOUTS BIGGER THAN 768px
     background-size: 40%;
   }
   .home-servicios-content {
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
+    padding-top: 0.5rem;
   }
   .home-servicios-content img {
     width: 15%;
@@ -214,6 +228,15 @@ MEDIAQUERIES SM - LAYOUTS BIGGER THAN 768px
   .about-main-content {
     font-size: 0.9rem;
     line-height: 1.8rem;
+    padding-bottom: 0;
+  }
+  .about-main-container {
+    padding: 4rem 1rem;
+    padding-bottom: 0;
+  }
+  .about-second-container {
+    padding: 4rem 1rem;
+    padding-top: 0rem;
   }
   .about-values-container .about-values-item .about-values-item-content {
     font-size: 0.9rem;
@@ -245,6 +268,22 @@ MEDIAQUERIES SM - LAYOUTS BIGGER THAN 768px
     font-size: 1rem;
     line-height: 1.5rem;
   }
+  .row-contact-items .contact-item .contact-item-wrapper img {
+    width: 60px;
+    height: auto;
+  }
+  .row-contact-items .contact-item .contact-item-wrapper {
+    position: relative;
+    padding: 0;
+  }
+  .contact-items-container {
+    padding: 3rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+  }
+  .row-contact-items .contact-item .contact-item-wrapper:after {
+    height: 110px;
+  }
 }
 @media (max-width: 768px) {
   .header-navbar-mobile .header-mobile-button .btn-menu-open {
@@ -256,6 +295,17 @@ MEDIAQUERIES SM - LAYOUTS BIGGER THAN 768px
 MEDIAQUERIES XS - LAYOUTS LESS THAN 600px
 -------------------------------------------------------------- */
 @media (max-width: 600px) {
+  .contact-map-container {
+    margin-bottom: 3rem;
+  }
+  .services-hero-title h2 {
+    font-size: 1.5rem;
+  }
+  .services-description-container .services-group-item .services-group-image {
+    padding: 2.5rem;
+    width: 145px;
+    height: 145px;
+  }
   .header-navbar-mobile .header-mobile-button .btn-menu-open {
     top: 2.6%;
     right: 6.4%;
@@ -313,6 +363,7 @@ MEDIAQUERIES XS - LAYOUTS LESS THAN 600px
   }
   .about-values-container .about-values-item {
     padding: 1rem 1rem;
+    padding-bottom: 3rem;
   }
   .about-descanso-separator {
     background-size: 60% !important;
@@ -336,6 +387,25 @@ MEDIAQUERIES XS - LAYOUTS LESS THAN 600px
   .row-service-items {
     padding: 1rem 1rem;
     padding-bottom: 1rem;
+  }
+  .row-contact-items .contact-item .contact-item-wrapper {
+    position: relative;
+    padding: 2rem;
+  }
+  .row-contact-items .contact-item .contact-item-wrapper:after {
+    display: none;
+  }
+  .row-contact-items .contact-item .contact-item-wrapper img {
+    width: auto;
+    height: auto;
+  }
+  .custom-embed-responsive::before {
+    padding-top: 80%;
+  }
+  .contact-items-container {
+    padding: 2rem 1rem;
+    font-size: 1.1rem;
+    line-height: 1.4rem;
   }
 }
 @media (max-width: 533px) {

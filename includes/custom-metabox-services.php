@@ -87,28 +87,28 @@ $cmb_service_hero->add_field( array(
 $group_field_id = $cmb_service_hero->add_field( array(
     'id'          => $prefix . 'service_hero_group',
     'type'        => 'group',
-    'description' => __( 'Items del Hero de Servicios', 'xsl' ),
+    'description' => __( 'Items del Hero de Servicios', 'investjp' ),
     'options'     => array(
-        'group_title'       => __( 'Item {#}', 'xsl' ),
-        'add_button'        => __( 'Agregar otro Item', 'xsl' ),
-        'remove_button'     => __( 'Remover Item', 'xsl' ),
+        'group_title'       => __( 'Item {#}', 'investjp' ),
+        'add_button'        => __( 'Agregar otro Item', 'investjp' ),
+        'remove_button'     => __( 'Remover Item', 'investjp' ),
         'sortable'          => true,
         'closed'         => true,
-        'remove_confirm' => esc_html__( '¿Estas seguro de remover este item?', 'xsl' )
+        'remove_confirm' => esc_html__( '¿Estas seguro de remover este item?', 'investjp' )
     )
 ) );
 
 $cmb_service_hero->add_group_field( $group_field_id, array(
     'id'   => 'image',
-    'name'      => esc_html__( 'Imagen del Item', 'holpack' ),
-    'desc'      => esc_html__( 'Cargar una imagen para esta item', 'holpack' ),
+    'name'      => esc_html__( 'Imagen del Item', 'investjp' ),
+    'desc'      => esc_html__( 'Cargar una imagen para esta item', 'investjp' ),
     'type'    => 'file',
 
     'options' => array(
         'url' => false
     ),
     'text'    => array(
-        'add_upload_file_text' => esc_html__( 'Cargar Imagen', 'holpack' ),
+        'add_upload_file_text' => esc_html__( 'Cargar Imagen', 'investjp' ),
     ),
     'query_args' => array(
         'type' => array(
@@ -220,28 +220,28 @@ $cmb_service_items = new_cmb2_box( array(
 $group_field_id = $cmb_service_items->add_field( array(
     'id'          => $prefix . 'service_items_group',
     'type'        => 'group',
-    'description' => __( 'Valores de la Empresa', 'xsl' ),
+    'description' => __( 'Valores de la Empresa', 'investjp' ),
     'options'     => array(
-        'group_title'       => __( 'Item {#}', 'xsl' ),
-        'add_button'        => __( 'Agregar otro Item', 'xsl' ),
-        'remove_button'     => __( 'Remover Item', 'xsl' ),
+        'group_title'       => __( 'Item {#}', 'investjp' ),
+        'add_button'        => __( 'Agregar otro Item', 'investjp' ),
+        'remove_button'     => __( 'Remover Item', 'investjp' ),
         'sortable'          => true,
         'closed'         => true,
-        'remove_confirm' => esc_html__( '¿Estas seguro de remover este item?', 'xsl' )
+        'remove_confirm' => esc_html__( '¿Estas seguro de remover este item?', 'investjp' )
     )
 ) );
 
 $cmb_service_items->add_group_field( $group_field_id, array(
     'id'   => 'icon',
-    'name'      => esc_html__( 'Imagen del Item', 'holpack' ),
-    'desc'      => esc_html__( 'Cargar una imagen para esta item', 'holpack' ),
+    'name'      => esc_html__( 'Imagen del Item', 'investjp' ),
+    'desc'      => esc_html__( 'Cargar una imagen para esta item', 'investjp' ),
     'type'    => 'file',
 
     'options' => array(
         'url' => false
     ),
     'text'    => array(
-        'add_upload_file_text' => esc_html__( 'Cargar Imagen', 'holpack' ),
+        'add_upload_file_text' => esc_html__( 'Cargar Imagen', 'investjp' ),
     ),
     'query_args' => array(
         'type' => array(

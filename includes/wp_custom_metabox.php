@@ -70,4 +70,7 @@ function investjp_register_custom_metabox() {
 
     /* SERVICES */
     require_once('custom-metabox-services.php');
+
+    /* CONTACT */
+    require_once('custom-metabox-contact.php');
 }

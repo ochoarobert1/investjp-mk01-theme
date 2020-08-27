@@ -18,7 +18,7 @@
                     <div class="about-main-content col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
                         <?php the_content(); ?>
                     </div>
-                    <div class="about-main-image col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
+                    <div class="about-main-image col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12 d-xl-block d-lg-block d-md-none d-sm-none d-none">
                         <?php $bg_banner_id = get_post_meta(get_the_ID(), 'ijp_about_content_bg_id', true); ?>
                         <?php $bg_banner = wp_get_attachment_image_src($bg_banner_id, 'full', false); ?>
                         <img itemprop="image" content="<?php echo $bg_banner[0];?>" src="<?php echo $bg_banner[0];?>" title="<?php echo get_post_meta( $bg_banner_id, '_wp_attachment_image_alt', true ); ?>" alt="<?php echo get_post_meta($bg_banner_id, '_wp_attachment_image_alt', true ); ?>" class="img-fluid" width="<?php echo $bg_banner[1]; ?>" height="<?php echo $bg_banner[2]; ?>" />
@@ -84,7 +84,6 @@
                             </div>
                         </div>
                     </div>
-
                     <?php $i++; } ?>
                     <?php endif; ?>
                 </div>
@@ -113,7 +112,7 @@
                         <div class="card-columns">
                             <?php $i = 1; ?>
                             <?php foreach ($gallery_list as $key => $value) { ?>
-                            <?php $size = ($i == 3) ? 'special_large' : 'medium'; ?>
+                            <?php $size = ($i == 3) ? 'special_large' : 'special_medium'; ?>
                             <?php $bg_banner = wp_get_attachment_image_src($key, $size, false); ?>
                             <?php $delay = 150 * $i; ?>
                             <div class="card" data-aos="fade" data-aos-delay="<?php echo $delay; ?>">

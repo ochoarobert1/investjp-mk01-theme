@@ -1,5 +1,6 @@
 var menuBtn = '',
     menuCtn = '',
+    viewMore = '',
     menuContent = '';
 
 AOS.init({
@@ -37,6 +38,21 @@ function documentCustomLoad() {
 
     menuBtn = document.getElementById('menuBtn');
     menuBtn.addEventListener('click', menuOpen, false);
+
+
+    viewMore = document.getElementsByClassName('hero-view-more');
+    if (viewMore != null) {
+        viewMore[0].addEventListener('click', function() {
+            const offsetTop = document.getElementById('next').offsetTop;
+
+            scroll({
+                top: offsetTop,
+                behavior: "smooth"
+            });
+        }, false);
+    }
+
+
 }
 
 document.addEventListener("DOMContentLoaded", documentCustomLoad, false);

@@ -94,7 +94,7 @@ function investjp_widgets_init() {
         'after_title'   => '</h2>',
     ) );
 
-    register_sidebars( 4, array(
+    register_sidebars( 5, array(
         'name'          => __('Pie de Página %d', 'investjp'),
         'id'            => 'sidebar_footer',
         'description'   => __('Estos widgets seran vistos en el pie de página del sitio', 'investjp'),
@@ -103,19 +103,7 @@ function investjp_widgets_init() {
         'before_title'  => '<h2 class="widgettitle">',
         'after_title'   => '</h2>'
     ) );
-
-    //    register_sidebar( array(
-    //        'name' => __( 'Sidebar de la Tienda', 'investjp' ),
-    //        'id' => 'shop_sidebar',
-    //        'description' => __( 'Estos widgets seran vistos en Tienda y Categorias de Producto', 'investjp' ),
-    //        'before_widget' => '<li id='%1$s' class='widget %2$s'>',
-    //        'after_widget'  => '</li>',
-    //        'before_title'  => '<h2 class='widgettitle'>',
-    //        'after_title'   => '</h2>',
-    //    ) );
 }
-
-
 
 /* --------------------------------------------------------------
     ADD CUSTOM METABOX
@@ -144,7 +132,96 @@ if ( function_exists('add_theme_support') ) {
 }
 if ( function_exists('add_image_size') ) {
     add_image_size('avatar', 100, 100, true);
-    add_image_size('logo', 280, 60, false);
-    add_image_size('special_large', 355, 410, false);
+    add_image_size('small_avatar', 70, 70, true);
+    add_image_size('logo', 200, 40, false);
+    add_image_size('logo_larger', 260, 440, false);
+    add_image_size('special_large', 384, 410, true);
+    add_image_size('special_medium', 382, 199, true);
     add_image_size('single_img', 636, 297, true );
+}
+
+/* --------------------------------------------------------------
+    ADD CUSTOM AJAX HANDLER
+-------------------------------------------------------------- */
+add_action('wp_ajax_nopriv_send_message', 'send_message_handler');
+add_action('wp_ajax_send_message', 'send_message_handler');
+
+function send_message_handler() {
+    if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+        error_reporting( E_ALL );
+        ini_set( 'display_errors', 1 );
+    }
+
+    $full_name = $_POST['contact_name'];
+    $email = $_POST['contact_email'];
+    $phone = $_POST['contact_phone'];
+    $message = $_POST['contact_comments'];
+    $logo = get_template_directory_uri() . '/images/logo.png';
+    $grecaptcha = $_POST['g-recaptcha-response'];
+
+    $google_options = get_option('ijp_google_settings');
+
+    if ($grecaptcha) {
+        $post_data = http_build_query(
+            array(
+                'secret' => $google_options['secretkey'],
+                'response' => $grecaptcha,
+                'remoteip' => $_SERVER['REMOTE_ADDR']
+            ), '', '&');
+
+        $opts = array('http' =>
+                      array(
+                          'method'  => 'POST',
+                          'header'  => 'Content-type: application/x-www-form-urlencoded',
+                          'content' => $post_data
+                      )
+                     );
+
+        $context  = stream_context_create($opts);
+        $response = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
+        $captcha_response = json_decode($response);
+    }
+
+    if($captcha_response->success == true) {
+        ob_start();
+        require_once get_theme_file_path( '/templates/template-contact-email.php' );
+        $body = ob_get_clean();
+        $body = str_replace( [
+            '{contact_name}',
+            '{contact_email}',
+            '{contact_phone}',
+            '{contact_comments}',
+            '{logo}'
+        ], [
+            $full_name,
+            $email,
+            $phone,
+            $message,
+            $logo
+        ], $body );
+
+
+        require_once ABSPATH . WPINC . '/PHPMailer/PHPMailer.php';
+        require_once ABSPATH . WPINC . '/PHPMailer/Exception.php';
+        $mail = new PHPMailer\PHPMailer\PHPMailer;
+
+        $mail->isHTML( true );
+        $mail->Body = $body;
+        $mail->CharSet = 'UTF-8';
+        $mail->addAddress( 'ochoa.robert1@gmail.com' );
+        $mail->setFrom( "noreply@{$_SERVER['SERVER_NAME']}", esc_html( get_bloginfo( 'name' ) ) );
+        $mail->Subject = esc_html__( 'Invest JP: Nuevo Mensaje de Contacto', 'holpack' );
+
+        if ( ! $mail->send() ) {
+            wp_send_json_success( esc_html__( "Thank You for your interest in our products, you will be contacted shortly.", 'holpack' ), 200 );
+//            wp_send_json_error( esc_html__( 'Your request could not be sent. Please try again.', 'holpack' ), 400 );
+        } else {
+            wp_send_json_success( esc_html__( "Thank You for your interest in our products, you will be contacted shortly.", 'holpack' ), 200 );
+        }
+
+    } else {
+        wp_send_json_error( esc_html__( 'Your request2 could not be sent. Please try again.', 'holpack' ), 400 );
+    }
+
+    wp_die();
 }

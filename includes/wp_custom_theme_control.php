@@ -177,6 +177,45 @@ function investjp_customize_register( $wp_customize ) {
         'label' => __( 'Link de Cookies', 'investjp' ),
     ) );
 
+    /* GOOGLE RECAPTCHA */
+    $wp_customize->add_section('ijp_google_settings', array(
+        'title'    => __('Google', 'investjp'),
+        'description' => __('Google Recaptcha Data', 'investjp'),
+        'priority' => 180,
+    ));
+
+    $wp_customize->add_setting('ijp_google_settings[sitekey]', array(
+        'default'           => '',
+        'sanitize_callback' => 'sanitize_text_field',
+        'capability'        => 'edit_theme_options',
+        'type'           => 'option'
+
+    ));
+
+    $wp_customize->add_control( 'sitekey', array(
+        'type' => 'text',
+        'label'    => __('SiteKey', 'investjp'),
+        'description' => __( 'Enter Recaptcha API SiteKey.' ),
+        'section'  => 'ijp_google_settings',
+        'settings' => 'ijp_google_settings[sitekey]'
+    ));
+
+    $wp_customize->add_setting('ijp_google_settings[secretkey]', array(
+        'default'           => '',
+        'sanitize_callback' => 'sanitize_text_field',
+        'capability'        => 'edit_theme_options',
+        'type'           => 'option',
+
+    ));
+
+    $wp_customize->add_control( 'secretkey', array(
+        'type' => 'text',
+        'label'    => __('SecretKey', 'investjp'),
+        'description' => __( 'Enter Recaptcha API SecretKey.' ),
+        'section'  => 'ijp_google_settings',
+        'settings' => 'ijp_google_settings[secretkey]'
+    ) );
+
 }
 
 function investjp_sanitize_url( $url ) {

@@ -38,15 +38,15 @@ $cmb_home_hero->add_field( array(
 
 $cmb_home_hero->add_field( array(
     'id'   => $prefix . 'hero_banner_logo',
-    'name'      => esc_html__( 'Logo del Hero', 'holpack' ),
-    'desc'      => esc_html__( 'Cargar un logo para esta sección', 'holpack' ),
+    'name'      => esc_html__( 'Logo del Hero', 'investjp' ),
+    'desc'      => esc_html__( 'Cargar un logo para esta sección', 'investjp' ),
     'type'    => 'file',
 
     'options' => array(
         'url' => false
     ),
     'text'    => array(
-        'add_upload_file_text' => esc_html__( 'Cargar Logo', 'holpack' ),
+        'add_upload_file_text' => esc_html__( 'Cargar Logo', 'investjp' ),
     ),
     'query_args' => array(
         'type' => array(

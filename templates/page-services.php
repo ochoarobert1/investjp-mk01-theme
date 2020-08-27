@@ -87,7 +87,7 @@
                     <?php foreach ($array_services as $item) { ?>
                     <div class="services-group-item col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
                         <div class="services-group-image">
-                            <?php $bg_banner = wp_get_attachment_image_src($item['icon_id'], 'avatar', false); ?>
+                            <?php $bg_banner = wp_get_attachment_image_src($item['icon_id'], 'small_avatar', false); ?>
                             <img itemprop="image" content="<?php echo $bg_banner[0];?>" src="<?php echo $bg_banner[0];?>" title="<?php echo get_post_meta( $bg_banner_id, '_wp_attachment_image_alt', true ); ?>" alt="<?php echo get_post_meta($bg_banner_id, '_wp_attachment_image_alt', true ); ?>" class="img-fluid" width="<?php echo $bg_banner[1]; ?>" height="<?php echo $bg_banner[2]; ?>" />
                         </div>
                         <h3><?php echo $item['title']; ?></h3>

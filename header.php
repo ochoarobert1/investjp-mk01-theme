@@ -165,7 +165,7 @@
                 </div>
                 <div class="menu-mobile-extra-lang">
                     <a title="<?php _e('Ver el sitio en Español', 'investjp'); ?>" href="<?php echo network_home_url('/'); ?>"><?php _e('Español', 'investjp'); ?></a>
-                    <a title="<?php _e('Ver el sitio en Ingles', 'investjp'); ?>" href="<?php echo network_home_url('/eng'); ?>"><?php _e('Ingles', 'investjp'); ?></a>
+                    <a title="<?php _e('Ver el sitio en Inglés', 'investjp'); ?>" href="<?php echo network_home_url('/eng'); ?>"><?php _e('Inglés', 'investjp'); ?></a>
                 </div>
 
             </div>

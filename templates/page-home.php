@@ -22,7 +22,7 @@
                     </div>
                     <div data-aos="fade" data-aos-delay="350" class="home-hero-logo col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-xl-block d-lg-block d-md-block d-sm-none d-none">
                         <?php $bg_banner_id = get_post_meta(get_the_ID(), 'ijp_hero_banner_logo_id', true); ?>
-                        <?php $bg_banner = wp_get_attachment_image_src($bg_banner_id, 'large', false); ?>
+                        <?php $bg_banner = wp_get_attachment_image_src($bg_banner_id, 'logo_larger', false); ?>
                         <img itemprop="logo" content="<?php echo $bg_banner[0];?>" src="<?php echo $bg_banner[0];?>" title="<?php echo get_post_meta( $bg_banner_id, '_wp_attachment_image_alt', true ); ?>" alt="<?php echo get_post_meta($bg_banner_id, '_wp_attachment_image_alt', true ); ?>" class="img-fluid" width="<?php echo $bg_banner[1]; ?>" height="<?php echo $bg_banner[2]; ?>" />
                     </div>
                     <div class="hero-view-more hvr-wobble-vertical" data-aos="fade" data-aos-delay="300" >
@@ -33,7 +33,7 @@
             </div>
         </section>
         <?php /* HOME: DESCANSO SECTION */ ?>
-        <section class="home-descanso-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" data-aos="fade" data-aos-delay="300">
+        <section id="next" class="home-descanso-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" data-aos="fade" data-aos-delay="300">
             <div class="container">
                 <div class="row row-hero align-items-start">
                     <div class="home-descanso-content col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -96,7 +96,7 @@
                         <div class="card-columns">
                             <?php $i = 1; ?>
                             <?php foreach ($gallery_list as $key => $value) { ?>
-                            <?php $size = ($i == 3) ? 'special_large' : 'medium'; ?>
+                            <?php $size = ($i == 3) ? 'special_large' : 'special_medium'; ?>
                             <?php $bg_banner = wp_get_attachment_image_src($key, $size, false); ?>
                             <?php $delay = 150 * $i; ?>
                             <div class="card" data-aos="fade" data-aos-delay="<?php echo $delay; ?>">
