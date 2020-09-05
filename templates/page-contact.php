@@ -17,8 +17,10 @@
                 <div class="row row-contact-items align-items-start">
                     <?php $about_values_group = get_post_meta(get_the_ID(), 'ijp_contact_items_group', true); ?>
                     <?php if (!empty($about_values_group)) : ?>
+                    <?php $i = 1; ?>
                     <?php foreach ($about_values_group as $item) { ?>
-                    <article class="contact-item col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+                    <?php $delay = 150 * $i; ?>
+                    <article class="contact-item col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12" data-aos="fadeDown" data-aos-delay="<?php echo $delay; ?>">
                         <div class="contact-item-wrapper">
                             <?php $bg_banner = wp_get_attachment_image_src($item['icon_id'], 'small_avatar', false); ?>
                             <img src="<?php echo $bg_banner[0]; ?>" width="<?php echo $bg_banner[1]; ?>" height="<?php echo $bg_banner[2]; ?>" class="img-fluid" alt="<?php echo get_post_meta($bg_banner_id, '_wp_attachment_image_alt', true ); ?>" />
@@ -27,8 +29,37 @@
                             </div>
                         </div>
                     </article>
-                    <?php } ?>
+                    <?php $i++; } ?>
                     <?php endif; ?>
+                    <article class="contact-item col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12" data-aos="fadeDown" data-aos-delay="<?php echo $delay; ?>">
+                        <div class="contact-item-wrapper">
+                            <?php $social_options = get_option('ijp_social_settings'); ?>
+                            <div class="contact-item-info">
+                                <div class="social-header">
+                                    <?php if ((isset($social_options['facebook'])) && ($social_options['facebook'] != '')) { ?>
+                                    <a href="<?php echo $social_options['facebook']; ?>" title="<?php _e('Haz clic aquí para visitar nuestro perfil', 'investjp'); ?>" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <?php } ?>
+
+                                    <?php if ((isset($social_options['twitter'])) && ($social_options['twitter'] != '')) { ?>
+                                    <a href="<?php echo $social_options['twitter']; ?>" title="<?php _e('Haz clic aquí para visitar nuestro perfil', 'investjp'); ?>" target="_blank"><i class="fa fa-twitter"></i></a>
+                                    <?php } ?>
+
+                                    <?php if ((isset($social_options['instagram'])) && ($social_options['instagram'] != '')) { ?>
+                                    <a href="<?php echo $social_options['instagram']; ?>" title="<?php _e('Haz clic aquí para visitar nuestro perfil', 'investjp'); ?>" target="_blank"><i class="fa fa-instagram"></i></a>
+                                    <?php } ?>
+
+                                    <?php if ((isset($social_options['linkedin'])) && ($social_options['linkedin'] != '')) { ?>
+                                    <a href="<?php echo $social_options['linkedin']; ?>" title="<?php _e('Haz clic aquí para visitar nuestro perfil', 'investjp'); ?>" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    <?php } ?>
+
+                                    <?php if ((isset($social_options['youtube'])) && ($social_options['youtube'] != '')) { ?>
+                                    <a href="<?php echo $social_options['youtube']; ?>" title="<?php _e('Haz clic aquí para visitar nuestro perfil', 'investjp'); ?>" target="_blank"><i class="fa fa-youtube"></i></a>
+                                    <?php } ?>
+                                </div>
+                                <p class="text-center">LinkedIn</p>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </div>

@@ -65,7 +65,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="services-description-title col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <h2><?php _e('Nuestros Servicios', 'investjp'); ?></h2>
+                        <h2><?php _e('NUESTROS SERVICIOS', 'investjp'); ?></h2>
                     </div>
                     <div class="services-description-image col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                         <?php $bg_banner_id = get_post_meta(get_the_ID(), 'ijp_service_second_image_id', true); ?>

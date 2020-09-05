@@ -1,26 +1,10 @@
 var menuBtn = '',
     menuCtn = '',
     viewMore = '',
-    menuContent = '';
+    menuContent = '',
+    specialCard = '';
 
-AOS.init({
-    disable: false,
-    startEvent: 'DOMContentLoaded',
-    initClassName: 'aos-init',
-    animatedClassName: 'aos-animate',
-    useClassNames: false,
-    disableMutationObserver: false,
-    debounceDelay: 50,
-    throttleDelay: 99,
-
-    offset: 120,
-    delay: 0,
-    duration: 400,
-    easing: 'ease',
-    once: false,
-    mirror: false,
-    anchorPlacement: 'top-bottom'
-});
+AOS.init();
 
 
 function menuOpen() {
@@ -39,10 +23,9 @@ function documentCustomLoad() {
     menuBtn = document.getElementById('menuBtn');
     menuBtn.addEventListener('click', menuOpen, false);
 
-
     viewMore = document.getElementsByClassName('hero-view-more');
-    if (viewMore != null) {
-        viewMore[0].addEventListener('click', function() {
+    if (viewMore[0] != null) {
+        viewMore[0].addEventListener('click', function () {
             const offsetTop = document.getElementById('next').offsetTop;
 
             scroll({
@@ -50,6 +33,15 @@ function documentCustomLoad() {
                 behavior: "smooth"
             });
         }, false);
+    }
+
+    specialCard = document.getElementsByClassName('card-wrapper');
+    if (specialCard[0] != null) {
+        for (var i = 0; i < specialCard.length; i++) {
+            specialCard[i].addEventListener('click', function () {
+                jQuery('#specialModal').modal('show');
+            }, false);
+        }
     }
 
 

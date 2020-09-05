@@ -47,20 +47,48 @@ $cmb_about_content->add_field( array(
     )
 ) );
 
-$cmb_about_content->add_field( array(
-    'id'            => $prefix . 'about_content_logo_list',
+$group_field_id = $cmb_about_content->add_field( array(
+    'id'          => $prefix . 'about_content_logos_group',
+    'type'        => 'group',
     'name'          => esc_html__('Logos', 'investjp'),
-    'desc'          => esc_html__('Cargue o seleccione las imágenes para incluirlas en la Galería de la Localización', 'investjp'),
-    'type'          => 'file_list',
-    'query_args'    => array( 'type' => 'image' ),
-    'text' => array(
-        'add_upload_files_text'     => esc_html__( 'Cargar Imágenes', 'investjp' ),
-        'remove_image_text'         => esc_html__( 'Remove Imágenes', 'investjp' ),
-        'file_text'                 => esc_html__( 'Imagen', 'investjp' ),
-        'file_download_text'        => esc_html__( 'Descargar', 'investjp' ),
-        'remove_text'               => esc_html__( 'Remover', 'investjp' ),
+    'desc'          => esc_html__('Cargue o seleccione los logos para incluirlos en esta sección', 'investjp'),
+    'options'     => array(
+        'group_title'       => __( 'Logo {#}', 'investjp' ),
+        'add_button'        => __( 'Agregar otro Logo', 'investjp' ),
+        'remove_button'     => __( 'Remover Logo', 'investjp' ),
+        'sortable'          => true,
+        'closed'         => true,
+        'remove_confirm' => esc_html__( '¿Estas seguro de remover este Logo?', 'investjp' )
+    )
+) );
+
+$cmb_about_content->add_group_field( $group_field_id, array(
+    'id'   => 'logo',
+    'name'      => esc_html__( 'Logo', 'investjp' ),
+    'desc'      => esc_html__( 'Cargar el Logo', 'investjp' ),
+    'type'    => 'file',
+
+    'options' => array(
+        'url' => false
     ),
-    'preview_size'  => 'thumbnail'
+    'text'    => array(
+        'add_upload_file_text' => esc_html__( 'Cargar Logo', 'investjp' ),
+    ),
+    'query_args' => array(
+        'type' => array(
+            'image/gif',
+            'image/jpeg',
+            'image/png'
+        )
+    ),
+    'preview_size' => 'thumbnail'
+) );
+
+$cmb_about_content->add_group_field( $group_field_id, array(
+    'id'        => 'url',
+    'name'      => esc_html__( 'URL del Logo', 'investjp' ),
+    'desc'      => esc_html__( 'Ingrese una URL descriptiva al logo', 'investjp' ),
+    'type' => 'text_url'
 ) );
 
 /* --------------------------------------------------------------
@@ -206,6 +234,28 @@ $cmb_about_descanso->add_field( array(
     ),
     'text'    => array(
         'add_upload_file_text' => esc_html__( 'Cargar Imagen de Fondo', 'investjp' ),
+    ),
+    'query_args' => array(
+        'type' => array(
+            'image/gif',
+            'image/jpeg',
+            'image/png'
+        )
+    ),
+    'preview_size' => 'medium'
+) );
+
+$cmb_about_descanso->add_field( array(
+    'id'   => $prefix . 'about_descanso_icon',
+    'name'      => esc_html__( 'Icono Hero', 'investjp' ),
+    'desc'      => esc_html__( 'Cargar un icono para esta sección', 'investjp' ),
+    'type'    => 'file',
+
+    'options' => array(
+        'url' => false
+    ),
+    'text'    => array(
+        'add_upload_file_text' => esc_html__( 'Cargar Imagen de icono', 'investjp' ),
     ),
     'query_args' => array(
         'type' => array(

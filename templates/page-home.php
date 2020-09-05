@@ -76,10 +76,8 @@
                         <?php $bg_banner = wp_get_attachment_image_src($bg_banner_id, 'thumbnail', false); ?>
                         <img itemprop="image" content="<?php echo $bg_banner[0];?>" src="<?php echo $bg_banner[0];?>" title="<?php echo get_post_meta( $bg_banner_id, '_wp_attachment_image_alt', true ); ?>" alt="<?php echo get_post_meta($bg_banner_id, '_wp_attachment_image_alt', true ); ?>" class="img-fluid" width="<?php echo $bg_banner[1]; ?>" height="<?php echo $bg_banner[2]; ?>" />
                     </div>
-                    <div class="home-benefits-content col-xl-5 col-lg-5 col-md-5 col-sm-12 col-12">
+                    <div class="home-benefits-content col-xl-6 offset-xl-2 col-lg-6 offset-lg-2 col-md-10 col-sm-12 col-12">
                         <?php echo apply_filters('the_content', get_post_meta(get_the_ID(), 'ijp_home_benefits_title', true)); ?>
-                    </div>
-                    <div class="home-benefits-content col-xl-5 col-lg-5 col-md-5 col-sm-12 col-12">
                         <?php echo apply_filters('the_content', get_post_meta(get_the_ID(), 'ijp_home_benefits_desc', true)); ?>
                     </div>
                 </div>
@@ -90,7 +88,6 @@
             <div class="container">
                 <div class="row no-gutters align-items-center">
                     <div class="home-gallery-content col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <h2><?php _e('Galería', 'investjp'); ?></h2>
                         <?php $gallery_list = get_post_meta(get_the_ID(), 'ijp_home_gallery_list', true); ?>
                         <?php if (!empty($gallery_list)) : ?>
                         <div class="card-columns">

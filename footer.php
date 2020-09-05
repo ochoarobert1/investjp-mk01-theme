@@ -31,6 +31,13 @@
                         </ul>
                     </div>
                     <?php endif; ?>
+                     <?php if ( is_active_sidebar( 'sidebar_footer-5' ) ) : ?>
+                    <div class="footer-item col-xl col-lg col-md col-sm-12 col-12">
+                        <ul id="sidebar-footer4" class="footer-sidebar">
+                            <?php dynamic_sidebar( 'sidebar_footer-5' ); ?>
+                        </ul>
+                    </div>
+                    <?php endif; ?>
                     <div class="w-100"></div>
                 </div>
             </div>

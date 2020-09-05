@@ -68,6 +68,12 @@ function investjp_register_custom_metabox() {
     /* ABOUT */
     require_once('custom-metabox-about.php');
 
+    /* ACTIVOS */
+    require_once('custom-metabox-activos.php');
+
+    /* TERMS */
+    require_once('custom-metabox-terms.php');
+
     /* SERVICES */
     require_once('custom-metabox-services.php');
 
