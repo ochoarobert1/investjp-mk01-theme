@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: investjp Theme\n"
-"POT-Creation-Date: 2020-09-04 21:31-0400\n"
-"PO-Revision-Date: 2020-09-04 21:31-0400\n"
+"POT-Creation-Date: 2020-09-09 11:53-0400\n"
+"PO-Revision-Date: 2020-09-09 11:53-0400\n"
 "Last-Translator: Robert Ochoa <ochoa.robert1@gmail.com>\n"
 "Language-Team: Robert Ochoa <ochoa.robert1@gmail.com>\n"
 "Language: en_US\n"
@@ -67,6 +67,14 @@ msgstr "Archive from"
 #: author.php:12
 msgid "Acerca de"
 msgstr "About"
+
+#: footer.php:50
+msgid "aquí"
+msgstr "here"
+
+#: footer.php:52
+msgid "Acepto"
+msgstr "I Accept"
 
 #: functions.php:77
 msgid "Menu Header - Principal"

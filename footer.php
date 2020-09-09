@@ -31,7 +31,7 @@
                         </ul>
                     </div>
                     <?php endif; ?>
-                     <?php if ( is_active_sidebar( 'sidebar_footer-5' ) ) : ?>
+                    <?php if ( is_active_sidebar( 'sidebar_footer-5' ) ) : ?>
                     <div class="footer-item col-xl col-lg col-md col-sm-12 col-12">
                         <ul id="sidebar-footer4" class="footer-sidebar">
                             <?php dynamic_sidebar( 'sidebar_footer-5' ); ?>
@@ -45,6 +45,13 @@
     </div>
 </footer>
 <?php wp_footer() ?>
+<?php $cookies_options = get_option('ijp_cookie_settings'); ?>
+<div class="investjp-privacy-policy-accept hidden-policy" id="investjp-privacy-policy-accept">
+    <p class="text-center small"><?php echo $cookies_options['cookie_text']; ?> <a href="<?php echo get_permalink($cookies_options['cookie_link']); ?>" class="font-weight-bold"><?php _e( "aquí", 'investjp' ) ?></a>.</p>
+    <div class="button-container">
+        <a class="btn btn-md btn-privacy" id="privacy-policy-accept-btn"><?php _e( "Acepto", 'investjp' ) ?></a>
+    </div>
+</div>
 </body>
 
 </html>
