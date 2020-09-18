@@ -136,6 +136,8 @@ if ( function_exists('add_image_size') ) {
     add_image_size('logo', 200, 40, false);
     add_image_size('logo_larger', 260, 440, false);
     add_image_size('special_large', 384, 410, true);
+    add_image_size('special_large_cat', 300, 700, array('center', 'center'));
+    add_image_size('banner_img', 1900, 400, array('center', 'center'));
     add_image_size('special_medium', 382, 199, true);
     add_image_size('single_img', 636, 297, true );
 }
@@ -214,7 +216,7 @@ function send_message_handler() {
 
         if ( ! $mail->send() ) {
             wp_send_json_success( esc_html__( "Thank You for your interest in our products, you will be contacted shortly.", 'holpack' ), 200 );
-//            wp_send_json_error( esc_html__( 'Your request could not be sent. Please try again.', 'holpack' ), 400 );
+            //            wp_send_json_error( esc_html__( 'Your request could not be sent. Please try again.', 'holpack' ), 400 );
         } else {
             wp_send_json_success( esc_html__( "Thank You for your interest in our products, you will be contacted shortly.", 'holpack' ), 200 );
         }
@@ -224,4 +226,46 @@ function send_message_handler() {
     }
 
     wp_die();
+}
+
+
+/* --------------------------------------------------------------
+    ADD CUSTOM AJAX HANDLER
+-------------------------------------------------------------- */
+add_action('wp_ajax_nopriv_load_locations', 'load_locations_handler');
+add_action('wp_ajax_load_locations', 'load_locations_handler');
+
+function load_locations_handler() {
+    if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+        error_reporting( E_ALL );
+        ini_set( 'display_errors', 1 );
+    }
+    $json_array = array();
+
+    $arr_locations = new WP_Query(array('post_type' => 'activos', 'posts_per_page' => -1));
+
+    if ($arr_locations->have_posts()) :
+    while ($arr_locations->have_posts()) : $arr_locations->the_post();
+
+    $coordinates = get_post_meta(get_the_ID(), 'ijp_activos_hero_desc', true);
+    $coordinates = explode(',', $coordinates);
+    $log = $coordinates[1];
+    $lat = $coordinates[0];
+    $json_array[] = array(
+        'type' => 'Feature',
+        'geometry' => array(
+            'type' => 'Point',
+            'coordinates' => array((float)$log, (float)$lat)
+        ),
+        'properties' => array(
+            'title' => get_the_title(),
+            'description' => get_the_post_thumbnail(get_the_ID(), 'medium', array('class' => 'img-fluid'))
+        )
+    );
+
+    endwhile;
+    endif;
+    wp_reset_query();
+
+    wp_send_json_success( $json_array, 200 );
 }

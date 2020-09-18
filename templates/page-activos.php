@@ -35,35 +35,27 @@
             <div class="container">
                 <div class="row">
                     <div class="activos-taxonomy-content col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <?php $arr_terms = get_terms(array('taxonomy' => 'tipos-activos', 'hide_empty' => false, 'order' => 'ASC', 'orderby' => 'term_order', 'parent' => 0)); ?>
-                        <?php if (!empty($arr_terms)) : ?>
-                        <div class="row no-gutters">
-                            <?php $i = 1; ?>
-                            <?php foreach ($arr_terms as $item) { ?>
-                            <?php if ($i == 3 || $i == 8) { $size = 'special_large'; } else { $size =  'special_medium'; } ?>
-
-                            <?php if ($i == 1 || $i == 3 || $i == 4 || $i == 6 || $i == 8) { echo '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">'; } ?>
-
-                            <?php $key = get_term_meta($item->term_id, 'ijp_term_image_id', true); ?>
-                            <?php $bg_banner = wp_get_attachment_image_src($key, $size, false); ?>
-                            <?php $delay = 50 * $i; ?>
-                            <div class="special-card" data-aos="fade" data-aos-delay="<?php echo $delay; ?>">
-                                <?php if ($i == 3 || $i == 8) { $class = 'd-xl-block d-lg-block d-md-block d-sm-none d-none'; } else { $class = ''; }?>
-                                <img src="<?php echo $bg_banner[0]; ?>" width="<?php echo $bg_banner[1]; ?>" height="<?php echo $bg_banner[2]; ?>" class="custom-gallery-img img-fluid <?php echo $class; ?>" alt="<?php echo get_post_meta($bg_banner_id, '_wp_attachment_image_alt', true ); ?>" />
-                                <?php if ($i == 3 || $i == 8) { ?>
-                                <?php $bg_banner = wp_get_attachment_image_src($key, 'special-medium', false); ?>
-                                <?php $delay = 50 * $i; ?>
-                                <img src="<?php echo $bg_banner[0]; ?>" width="<?php echo $bg_banner[1]; ?>" height="<?php echo $bg_banner[2]; ?>" class="custom-gallery-img img-fluid d-xl-none d-lg-none d-md-none d-sm-block d-block" alt="<?php echo get_post_meta($bg_banner_id, '_wp_attachment_image_alt', true ); ?>" />
-                                <?php } ?>
-                                <div class="card-wrapper">
-                                    <h2><?php echo $item->name; ?></h2>
+                        <div class="container">
+                            <div class="row">
+                                <?php $arr_terms = get_terms(array('taxonomy' => 'tipos-activos', 'hide_empty' => false, 'order' => 'DESC', 'orderby' => 'term_order', 'parent' => 0)); ?>
+                                <?php if (!empty($arr_terms)) : ?>
+                                <?php $i = 1; ?>
+                                <?php foreach ($arr_terms as $item) { ?>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+                                    <?php $key = get_term_meta($item->term_id, 'ijp_term_image_id', true); ?>
+                                    <?php $bg_banner = wp_get_attachment_image_src($key, 'special_large_cat', false); ?>
+                                    <?php $delay = 50 * $i; ?>
+                                    <div class="special-card" data-aos="fade" data-aos-delay="<?php echo $delay; ?>">
+                                        <img src="<?php echo $bg_banner[0]; ?>" width="<?php echo $bg_banner[1]; ?>" height="<?php echo $bg_banner[2]; ?>" class="custom-gallery-img img-fluid" alt="<?php echo get_post_meta($bg_banner_id, '_wp_attachment_image_alt', true ); ?>" />
+                                        <a href="<?php echo get_term_link($item); ?>" class="card-wrapper">
+                                            <h2><?php echo $item->name; ?></h2>
+                                        </a>
+                                    </div>
                                 </div>
+                                <?php } ?>
+                                <?php endif; ?>
                             </div>
-
-                            <?php if ($i == 2 || $i == 3 || $i == 5 || $i == 7 || $i == 8) { echo '</div>'; } ?>
-                            <?php $i++; } ?>
                         </div>
-                        <?php endif; ?>
                     </div>
 
                     <div class="activos-logos-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -78,9 +70,9 @@
                             <?php foreach ($gallery_list as $item) { ?>
                             <?php $bg_banner = wp_get_attachment_image_src($item['logo_id'], 'full', false); ?>
                             <div class="activos-logos-item col-xl col-lg col-md col-sm-12 col-12">
-                            <a href="<?php echo $item['url']; ?>" title="<?php _e('Haga click aqui para ir al website', 'investjp'); ?>" target="_blank">
-                                <img src="<?php echo $bg_banner[0]; ?>" width="<?php echo $bg_banner[1]; ?>" height="<?php echo $bg_banner[2]; ?>" class="img-fluid" alt="<?php echo get_post_meta($bg_banner_id, '_wp_attachment_image_alt', true ); ?>" />
-                            </a>
+                                <a href="<?php echo $item['url']; ?>" title="<?php _e('Haga click aqui para ir al website', 'investjp'); ?>" target="_blank">
+                                    <img src="<?php echo $bg_banner[0]; ?>" width="<?php echo $bg_banner[1]; ?>" height="<?php echo $bg_banner[2]; ?>" class="img-fluid" alt="<?php echo get_post_meta($bg_banner_id, '_wp_attachment_image_alt', true ); ?>" />
+                                </a>
                             </div>
                             <?php } ?>
                             <?php endif; ?>

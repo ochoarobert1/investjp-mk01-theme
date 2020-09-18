@@ -25,7 +25,7 @@
                         <?php $bg_banner = wp_get_attachment_image_src($bg_banner_id, 'logo_larger', false); ?>
                         <img itemprop="logo" content="<?php echo $bg_banner[0];?>" src="<?php echo $bg_banner[0];?>" title="<?php echo get_post_meta( $bg_banner_id, '_wp_attachment_image_alt', true ); ?>" alt="<?php echo get_post_meta($bg_banner_id, '_wp_attachment_image_alt', true ); ?>" class="img-fluid" width="<?php echo $bg_banner[1]; ?>" height="<?php echo $bg_banner[2]; ?>" />
                     </div>
-                    <div class="hero-view-more hvr-wobble-vertical" data-aos="fade" data-aos-delay="300" >
+                    <div class="hero-view-more hvr-wobble-vertical" data-aos="fade" data-aos-delay="300">
                         <h4><?php _e('Explorar', 'investjp'); ?></h4>
                         <div></div>
                     </div>
@@ -83,6 +83,18 @@
                 </div>
             </div>
         </section>
+        <div id="explore" class="home-newmap-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="container">
+                <div class="row no-gutters align-items-center">
+                    <div class="home-newmap-content col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="embed-responsive embed-responsive-11by9">
+                            <div id='map' style='width: 100%; height: 450px;'></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <?php /* HOME: GALLERY SECTION */ ?>
         <section class="home-gallery-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" data-aos="fade" data-aos-delay="300">
             <div class="container">

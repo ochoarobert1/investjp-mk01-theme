@@ -72,6 +72,10 @@ function investjp_load_css() {
         wp_register_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap', false, $version_remove, 'all');
         wp_enqueue_style('google-fonts');
 
+        /*- MAPBOX STYLE -*/
+        wp_register_style('mapbox-style', 'https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css', false, '1.12.0', 'all');
+        wp_enqueue_style('mapbox-style');
+
         /*- MAIN STYLE -*/
         wp_register_style('main-style', get_template_directory_uri() . '/css/investjp-style.css', false, $version_remove, 'all');
         wp_enqueue_style('main-style');

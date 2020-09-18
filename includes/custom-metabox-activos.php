@@ -145,3 +145,25 @@ $cmb_activos_content->add_group_field( $group_field_id, array(
     'desc'      => esc_html__( 'Ingrese una URL descriptiva al logo', 'investjp' ),
     'type' => 'text_url'
 ) );
+
+
+/* --------------------------------------------------------------
+    1.- ACTIVOS: HERO TITLE SECTION
+-------------------------------------------------------------- */
+$cmb_activos_posttype = new_cmb2_box( array(
+    'id'            => $prefix . 'activos_coordinates_metabox',
+    'title'         => esc_html__( 'Activos: Coordenadas', 'investjp' ),
+    'object_types'  => array( 'activos' ),
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'show_names' => true,
+    'cmb_styles' => true,
+    'closed'     => false
+) );
+
+$cmb_activos_posttype->add_field( array(
+    'id'        => $prefix . 'activos_hero_desc',
+    'name'      => esc_html__( 'Coordenadas (Lat / Long)', 'investjp' ),
+    'desc'      => esc_html__( 'Ingrese las coordenadas separadas por comas', 'investjp' ),
+    'type' => 'text'
+) );

@@ -191,7 +191,9 @@ a {
 }
 
 .main-banner-container {
+    max-height: 350px;
     position: relative;
+    overflow: hidden;
 
     & .main-banner-wrapper {
         background: rgba(0, 0, 0, 0.3);
@@ -1184,6 +1186,13 @@ a {
         position: relative;
         margin: 5px;
         margin-bottom: 10px;
+        max-height: 450px;
+        overflow: hidden;
+
+
+        & img {
+            width: 100%;
+        }
 
         & .card-wrapper {
             position: absolute;
@@ -1267,4 +1276,39 @@ a {
     font-size: 3rem;
     margin-bottom: 1rem;
     display: block;
+}
+
+
+.mapboxgl-popup {
+    max-width: 400px;
+}
+
+.mapboxgl-popup-content {
+    text-align: center;
+    font-family: @mainfont;
+    background: rgba(1, 7, 23, .85);
+    padding: .2rem .5rem;
+    color: @white;
+}
+
+.mapboxgl-popup-content h3 {
+    font-size: .9rem;
+}
+
+.marker {
+//    background-image: url('https://investjps.com/wp-content/themes/investjp-mk01-theme/images/marker.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.home-newmap-container {
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+}
+
+.tax-map-container {
+    padding-bottom: 4rem;
 }
