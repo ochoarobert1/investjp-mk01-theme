@@ -37,5 +37,41 @@
         </div>
     </div>
 </main>
+<!-- Modal -->
+<?php $header_options = get_option('ijp_header_settings'); ?>
+<div class="modal modal-cards fade" id="specialModal" data-keyboard="false" tabindex="-1" aria-labelledby="specialModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/logo-white.png" alt="logo" class="img-fluid img-modal-logo" />
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <h3><?php _e('Para más información comuníquese con nosotros a través de:', 'investjp')?></h3>
+                            <div class="row">
+                                <div class="modal-info col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <a href="tel:<?php echo $header_options['formatted_phone_number']; ?>" target="_blank" title="<?php _e('Llámanos a nuestro Master', 'investjp'); ?>">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/phone.png" alt="logo" class="img-fluid" />
+                                        <?php if ($header_options['phone_number'] != '') { ?>
+                                        <?php echo $header_options['phone_number']; ?></a>
+                                    <?php } ?>
+                                </div>
+                                <div class="modal-info col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <a href="mailto:<?php echo $header_options['email_address']; ?>" target="_blank" title="<?php _e('Déjanos un mensaje en nuestra bandeja de entrada', 'investjp'); ?>">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/email.png" alt="logo" class="img-fluid" />
+                                        <?php if ($header_options['email_address'] != '') { ?>
+                                        <?php echo $header_options['email_address']; ?></a>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <?php get_footer(); ?>

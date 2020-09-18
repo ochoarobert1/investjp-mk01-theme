@@ -61,16 +61,6 @@ function documentCustomLoad() {
             });
         }, false);
     }
-
-    specialCard = document.getElementsByClassName('card-wrapper2');
-    if (specialCard[0] != null) {
-        for (var i = 0; i < specialCard.length; i++) {
-            specialCard[i].addEventListener('click', function () {
-                jQuery('#specialModal').modal('show');
-            }, false);
-        }
-    }
-
     /* COOKIE CONSENT */
     // IF COOKIE IF SET OR NOT
     var cookieElement = document.getElementsByClassName('investjp-privacy-policy-accept');
@@ -167,6 +157,10 @@ function documentCustomLoad() {
                         // Populate the popup and set its coordinates
                         // based on the feature found.
                         popup.setLngLat(coordinates).setHTML('<h3>' + e.features[0].properties.title + '</h3><p>' + e.features[0].properties.description + '</p>').addTo(map);
+                    });
+
+                    map.on('click', 'places', function (e) {
+                        jQuery('#specialModal').modal('show');
                     });
 
                     map.on('mouseleave', 'places', function () {
