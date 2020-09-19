@@ -43,6 +43,19 @@
                 </div>
             </div>
         </section>
+        <?php /* HOME: MAP SECTION */ ?>
+        <div id="explore" class="home-newmap-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="container">
+                <div class="row no-gutters align-items-center">
+                    <div class="home-newmap-content col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="embed-responsive embed-responsive-11by9">
+                            <div id='mapContainer' style='width: 100%; height: 450px;'></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <?php $bg_banner_id = get_post_meta(get_the_ID(), 'ijp_hero_services_bg_id', true); ?>
         <?php $bg_banner = wp_get_attachment_image_src($bg_banner_id, 'full', false); ?>
         <?php /* HOME: SERVICIOS SECTION */ ?>
@@ -83,18 +96,6 @@
                 </div>
             </div>
         </section>
-        <div id="explore" class="home-newmap-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-            <div class="container">
-                <div class="row no-gutters align-items-center">
-                    <div class="home-newmap-content col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="embed-responsive embed-responsive-11by9">
-                            <div id='map' style='width: 100%; height: 450px;'></div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <?php /* HOME: GALLERY SECTION */ ?>
         <section class="home-gallery-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" data-aos="fade" data-aos-delay="300">
             <div class="container">
@@ -147,6 +148,11 @@
 <div class="modal modal-cards fade" id="specialModal" data-keyboard="false" tabindex="-1" aria-labelledby="specialModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row align-items-center justify-content-center">

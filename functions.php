@@ -241,9 +241,16 @@ function load_locations_handler() {
         ini_set( 'display_errors', 1 );
     }
     $json_array = array();
+    $location = $_POST['location'];
 
-    $arr_locations = new WP_Query(array('post_type' => 'activos', 'posts_per_page' => -1));
+    $arr_tax = explode('_', $location);
 
+    if ($location == 'home') {
+        $arr_locations = new WP_Query(array('post_type' => 'activos', 'posts_per_page' => -1));
+    } else {
+
+        $arr_locations = new WP_Query(array('post_type' => 'activos', 'posts_per_page' => -1, 'tax_query' => array(array('taxonomy' => 'tipos-activos', 'field' => 'term_id', 'terms' => $arr_tax[1]))));
+    }
     if ($arr_locations->have_posts()) :
     while ($arr_locations->have_posts()) : $arr_locations->the_post();
 

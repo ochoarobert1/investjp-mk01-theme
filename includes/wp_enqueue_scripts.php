@@ -89,8 +89,10 @@ function investjp_load_js() {
         //wp_enqueue_script('swiper-js');
 
         /*- MAPBOX FUNCTIONS -*/
-        wp_register_script('mapbox-js', 'https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js', array('jquery'), '1.12.0', true);
-        wp_enqueue_script('mapbox-js');
+        if (is_front_page() || is_tax()) {
+            wp_register_script('mapbox-js', 'https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js', array('jquery'), '1.12.0', true);
+            wp_enqueue_script('mapbox-js');
+        }
 
         /*- MAIN FUNCTIONS -*/
         wp_register_script('main-functions', get_template_directory_uri() . '/js/functions.min.js', array('jquery'), $version_remove, true);
@@ -111,9 +113,15 @@ function investjp_load_js() {
         }
 
         /* LOCALIZE MAIN SHORTCODE SCRIPT */
+        if (is_front_page()) {
+            $query_ajax = 'home';
+        } else {
+            $query_ajax = 'tax_' . get_queried_object_id();
+        }
         wp_localize_script( 'main-functions', 'custom_admin_url', array(
             'ajax_url' => admin_url('admin-ajax.php'),
             'marker_url' => get_template_directory_uri() . '/images/marker.png',
+            'current_page' => $query_ajax,
             'error_nombre' => __('Error: El nombre no puede estar vacio', 'investjp'),
             'invalid_nombre' => __('Error: El nombre debe ser válido', 'investjp'),
             'error_email' => __('Error: El correo no puede estar vacio', 'investjp'),

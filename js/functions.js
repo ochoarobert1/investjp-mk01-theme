@@ -79,9 +79,9 @@ function documentCustomLoad() {
         cookieElement[0].classList.add("hidden-policy");
     }, false);
 
-    var mapContent = document.getElementById('map');
-    if (mapContent != '') {
-        var info = 'action=load_locations';
+    var mapContent = document.getElementById('mapContainer');
+    if (mapContent != null) {
+        var info = 'action=load_locations&location=' + custom_admin_url.current_page;
         /* SEND AJAX */
         var newRequest = new XMLHttpRequest();
         newRequest.open('POST', custom_admin_url.ajax_url, true);
@@ -94,13 +94,11 @@ function documentCustomLoad() {
                 mapboxgl.accessToken = 'pk.eyJ1Ijoib2Nob2Fyb2JlcnQxIiwiYSI6ImNrZjVsa3QwMTBleXIyem54azRhNjRkbzUifQ.kaUskuoajoOKezeLtjjFSg';
 
                 var map = new mapboxgl.Map({
-                    container: 'map',
+                    container: 'mapContainer',
                     style: 'mapbox://styles/mapbox/streets-v11',
                     center: [-3.716149396882429, 40.370705899966964],
                     zoom: 11.5
                 });
-
-
 
                 map.on('load', function () {
                     map.loadImage(

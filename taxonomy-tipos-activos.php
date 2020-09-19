@@ -29,7 +29,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="home-newmap-content col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="embed-responsive embed-responsive-11by9">
-                            <div id='map' style='width: 100%; height: 450px;'></div>
+                            <div id='mapContainer' style='width: 100%; height: 450px;'></div>
                         </div>
                     </div>
                 </div>
@@ -42,6 +42,11 @@
 <div class="modal modal-cards fade" id="specialModal" data-keyboard="false" tabindex="-1" aria-labelledby="specialModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row align-items-center justify-content-center">

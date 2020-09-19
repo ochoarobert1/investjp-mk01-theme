@@ -1211,10 +1211,22 @@ a {
 }
 
 .modal-cards {
-    .modal-content {
+    & .modal-header {
+        border: 0;
+        margin-bottom: 2rem;
+        padding: 0 .5rem;
+
+        & .close {
+            color: #e7eded;
+            opacity: .8;
+        }
+    }
+
+    & .modal-content {
         color: @white;
         background: rgba(8, 14, 28, 0.78);
         padding: 5rem 1rem;
+        padding-top: 1rem;
         text-align: center;
 
         & h3 {
@@ -1296,7 +1308,7 @@ a {
 }
 
 .marker {
-//    background-image: url('https://investjps.com/wp-content/themes/investjp-mk01-theme/images/marker.png');
+    //    background-image: url('https://investjps.com/wp-content/themes/investjp-mk01-theme/images/marker.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 20px;
